@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "828a6f73-f09c-4384-8601-1e3f60a938fb",
+		"name": "TrocaDisco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35326206"
+	},
+	"item": [
+		{
+			"name": "Criar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Fábio\"\r\n    ,\"email\":\"fabio.infor@terra.com.br\"\r\n    ,\"password\": \"123\"\r\n    ,\"cpf\":\"12345679809\"\r\n    ,\"birthdate\":\"07/09/1981\"\r\n    ,\"uf\":\"SP\"\r\n    ,\"city\":\"São Paulo\"\r\n    ,\"cep\":\"04379-072\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"fabio.infor@terra.com.br\"\r\n    ,\"password\":\"12s3\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Anúncio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUser\":\"6668ec23192872c8e9772718\"\r\n    ,\"title\": \"Sgt. Pepper's Lonely Hearts Club Band\"\r\n    , \"description\": \"O melhor disco dos Beatles em uma versão TOPP\"\r\n    , \"interest\": \"Dark Side of the Moon em LP (vinil)\"\r\n    , \"type\" : \"Vinil\"\r\n    , \"category\": \"Rock\"\r\n    , \"status\" : \"Ativo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/Advert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Advert"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

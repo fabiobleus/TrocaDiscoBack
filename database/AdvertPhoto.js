@@ -11,6 +11,6 @@ const AdvertPhotoSchema = new Schema({
    }
 });
 
-const User = model("AdvertPhoto", AdvertPhotoSchema);
+const AdvertPhoto = model("AdvertPhoto", AdvertPhotoSchema);
 
 export default AdvertPhoto;
