@@ -34,6 +34,6 @@ const AdvertSchema = new Schema({
 
 });
 
-const User = model("Advert", AdvertSchema);
+const Advert = model("Advert", AdvertSchema);
 
 export default Advert;
