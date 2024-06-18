@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const AdvertPhotoSchema = new Schema({
    idAdvert: {
-       type: String,
+       type: Schema.ObjectId,
        required: true   
    },
    fileName: {

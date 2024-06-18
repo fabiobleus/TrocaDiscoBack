@@ -25,8 +25,12 @@ const AdvertSchema = new Schema({
         type: String,
         required: true
     },
+    photo: {
+        type: Array,
+        required: true
+    },
    
-    Status: {
+    status: {
         type: String,
         required: true
     }
