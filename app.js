@@ -2,9 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import "./database/connection.js";
-import User from "./database/User.js";
-import Advert from "./database/Advert.js";
-import AdvertPhoto from "./database/AdvertPhoto.js";
+import userRoute from "./routes/userRoute.js";
+import advertRoute from "./routes/advertRoute.js";
 
 const app = express();
 //MONGO_DB_URL="mongodb+srv://fabiolosteiro:eAN9sTeobj31cT25@banconovo.yod7azz.mongodb.net/TrocaDisco?retryWrites=true&w=majority&appName=BancoNovo"
@@ -12,31 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 // Create user
-app.post("/user", async (request, response) => {
-  const { name, email, password, cpf, birthdate, uf, city, cep } = request.body;
+app.use("/Api", userRoute,advertRoute);
 
-  if (!name || !email || !password || !cpf || !birthdate || !uf || !city || !cep) {
-    return response.status(400).json({ message: "Invalid request body" });
-  }
-  const newUser = new User({ name, email, password, cpf, birthdate, uf, city, cep });
-  await newUser.save();
-
-  return response.status(201).json(newUser);
-
-});
-
-app.put("/user/:id", async (request, response) => {
-
-  const { id } = request.params;
-
-   const userFind = await Product.findByIdAndUpdate(id, request.body, {new: true});
-
-  if (!userFind) {
-    return response.status(404).json({ message: "User not found" });
-  }
-
-  return response.status(200).json({User: userFind});
- });
 
 // login
 app.post("/login", async (request, response) => {
@@ -58,19 +34,19 @@ app.post("/login", async (request, response) => {
 });
 
 
-// Create Advert
-app.post("/Advert", async (request, response) => {
-  const { idUser, title, description, interest, type, category, status, photo } = request.body;
+// // Create Advert
+// app.post("/Advert", async (request, response) => {
+//   const { idUser, title, description, interest, type, category, status, photo } = request.body;
 
-  if (!idUser || !title || !description || !interest || !type || !category|| !photo) {
-    return response.status(400).json({ message: "Invalid request body" });
-  }
-  const newAdvert = new Advert({ idUser, title, description, interest, type, category, status, photo });
-  await newAdvert.save();
+//   if (!idUser || !title || !description || !interest || !type || !category|| !photo) {
+//     return response.status(400).json({ message: "Invalid request body" });
+//   }
+//   const newAdvert = new Advert({ idUser, title, description, interest, type, category, status, photo });
+//   await newAdvert.save();
 
-  return response.status(201).json(newAdvert._id);
+//   return response.status(201).json(newAdvert._id);
 
-});
+// });
 
 app.post("/AdvertPhoto", async (request, response) => {
   const { idAdvert, fileName } = request.body;
