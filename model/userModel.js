@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     },
     phone: {
         type: String,
-        required: true
+        required: false
     },
     password: {
         type: String,
@@ -28,6 +28,11 @@ const UserSchema = new Schema({
     address: {
         type: String,
         required: true
+    },
+    
+    complement: {
+        type: String,
+        required: false
     },
     cep: {
         type: String,
