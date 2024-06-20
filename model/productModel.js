@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const AdvertSchema = new Schema({
+const ProductSchema = new Schema({
     idUser: {
         type: String,
         required: true
@@ -38,6 +38,6 @@ const AdvertSchema = new Schema({
 
 });
 
-const Advert = model("Advert", AdvertSchema);
+const Product = model("Product", ProductSchema);
 
-export default Advert;
+export default Product;

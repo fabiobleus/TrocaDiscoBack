@@ -19,11 +19,11 @@ const UserSchema = new Schema({
     },
         cpf: {
         type: String,
-        required: true
+        required: false
     },
     birthdate: {
         type: String,
-        required: true
+        required: false
     },
     address: {
         type: String,
@@ -36,7 +36,7 @@ const UserSchema = new Schema({
     },
     cep: {
         type: String,
-        required: true
+        required: false
     },
     city: {
         type: String,
@@ -44,7 +44,7 @@ const UserSchema = new Schema({
     },
     uf: {
         type: String,
-        required: true
+        required: false
     }       
 
 });

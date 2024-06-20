@@ -5,7 +5,7 @@ const userRoute = Router();
 
 userRoute.post("/user", userController.createUser);
 userRoute.get("/user/:email", userController.getUser);
-userRoute.post("/login", userController.createUser);
+userRoute.post("/login", userController.loginUser);
 userRoute.put("/user/:email", userController.alterUser);
 
 export default userRoute;
