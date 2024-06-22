@@ -51,11 +51,10 @@ export const productGet = async (req, res) => {
 
 export const productFindName = async (req, res) => {
     try {
-        const { productName } = req.params;
-        
+        const { productname } = req.params;
         const product = await productModel.find({
             title: {
-                $regex: productName,
+                $regex: productname,
                 $options: "i"
             }
         });
@@ -71,6 +70,16 @@ export const productFindUser = async (req, res) => {
         const { idUser } = req.params;
         
         const product = await productModel.find(iduser.idUser, idUser);
+        res.status(200).json({ product: product });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+export const productFindCategory = async (req, res) => {
+    try {
+        const { category } = req.params;
+        
+        const product = await productModel.find(category.idUser, idUser);
         res.status(200).json({ product: product });
     } catch (error) {
         res.status(500).json({ error: error.message });
